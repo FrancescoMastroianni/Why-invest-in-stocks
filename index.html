@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: Why Invest in the Stock Market</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .stat-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border-left: 5px solid #0062D5;
+        }
+        .info-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-top: 3px solid #4194FF;
+        }
+        .flow-item {
+            border: 2px solid #82B8FF;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: #F0F8FF;
+            text-align: center;
+            width: 100%;
+        }
+        .flow-connector {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+           .flow-connector {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-grow: 1;
+                height: 2px;
+                background-color: #82B8FF;
+           }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#004AAD] mb-2">Build Your Financial Future</h1>
+            <p class="text-xl font-semibold text-gray-700 mb-4">Francesco Mastroianni's Investment Insights</p>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Discover why the stock market is the most powerful tool for long-term wealth growth and how a proven strategy can generate concrete results.</p>
+        </header>
+
+        <section id="historical-performance" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-2">The Power of Long-Term Growth</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-4xl mx-auto">Historical analysis shows that, despite short-term fluctuations, global stock markets have consistently generated superior returns. A long time horizon is key to capitalizing on this growth.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="info-card">
+                        <h3 class="text-xl font-bold text-[#0062D5] mb-2">Capital Appreciation</h3>
+                        <p class="text-gray-700">The value of stocks grows when the underlying company succeeds and its profits increase. This is the primary gain for "growth stocks" investors.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="text-xl font-bold text-[#0062D5] mb-2">Inflation Protection</h3>
+                        <p class="text-gray-700">Companies can often increase the prices of their products, maintaining profit margins and protecting your purchasing power, unlike other assets.</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="msciWorldChart"></canvas>
+                </div>
+                <p class="text-sm text-center text-gray-500 mt-4">The chart illustrates the hypothetical growth of an investment in the MSCI World index, which has recorded a compound annual growth rate of approximately 10.51% since 1978. This highlights how patience and consistency reward investors.</p>
+            </div>
+        </section>
+
+        <section id="asset-comparison" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-2">Stocks vs. Other Asset Classes</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-4xl mx-auto">Comparing historical average annual returns, stocks stand out as the most performing choice for those aiming for significant capital growth, surpassing bonds, real estate, and gold.</p>
+                
+                <div class="chart-container" style="height: 450px;">
+                    <canvas id="assetComparisonChart"></canvas>
+                </div>
+                <p class="text-sm text-center text-gray-500 mt-4">This visual comparison clarifies the superior return potential of stocks. While other assets offer security or protection, stocks are the primary engine of wealth creation over time.</p>
+
+                <div class="info-card mt-8">
+                    <h3 class="text-xl font-bold text-[#0062D5] mb-2">Participation in Profits (Dividends)</h3>
+                    <p class="text-gray-700">Many companies distribute part of their profits to shareholders through dividends. These can provide a passive income stream and, if reinvested, accelerate capital growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="my-strategy" class="bg-[#004AAD] text-white rounded-lg shadow-2xl p-6 md:p-10 mb-16">
+            <h2 class="text-4xl font-black text-center mb-4">My Strategy in Action: Real Results</h2>
+            <p class="text-center text-blue-100 mb-10 max-w-3xl mx-auto">Theory is important, but results validate it. By applying long-term investment and diversification principles, I have built two portfolios with solid and demonstrable performance.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-center mb-4">Long-Term Portfolio (JustETF)</h3>
+                    <div class="text-center text-7xl font-black text-white my-4">+118%</div>
+                    <p class="text-center text-blue-200 font-semibold">From June 2019 to Today</p>
+                    <p class="text-center text-blue-200 mt-4">This result demonstrates the power of compounding and a strategy maintained with discipline through different market phases.</p>
+                </div>
+                
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-center mb-4">Current Portfolio (eToro)</h3>
+                     <div class="chart-container h-64">
+                        <canvas id="etoroPerformanceChart"></canvas>
+                    </div>
+                     <p class="text-center text-blue-200 mt-4">This more recent portfolio shows strong growth and reflects my active strategy to capitalize on current market opportunities.</p>
+                </div>
+
+            </div>
+            
+            <div class="mt-10 bg-white/10 p-6 rounded-lg">
+                <h3 class="text-2xl font-bold text-center mb-4">About My Strategy</h3>
+                <p class="text-blue-100 mb-4 leading-relaxed">Welcome to a strategy engineered for long-term outperformance. I target high-growth themes—artificial intelligence, emerging-market champions, blue-chip U.S. leaders, and top-tier cryptocurrencies—while applying disciplined annual rebalancing and rigorous security selection. The result is a balanced, forward-looking portfolio designed to capture upside and control risk.</p>
+                <p class="text-blue-100 leading-relaxed">I hold a degree in Business Administration and have completed Yale University’s “Financial Markets” course taught by Nobel laureate Robert Shiller, as well as the University of Geneva’s “Investment Management” program.</p>
+                <p class="text-blue-100 leading-relaxed mt-2">For more than five years I have actively managed a real-market portfolio, achieving an average annual return of 15 % and doubling the initial capital.</p>
+                <p class="text-blue-100 leading-relaxed mt-2">My long-term growth strategy is built on a diversified mix of:</p>
+                <ul class="list-disc list-inside text-blue-100 ml-4 mt-2">
+                    <li>leading US companies,</li>
+                    <li>standout emerging-market firms,</li>
+                    <li>innovators in artificial intelligence, and</li>
+                    <li>top-tier cryptocurrencies.</li>
+                </ul>
+                <p class="text-blue-100 leading-relaxed mt-2">I rebalance annually to restore each asset to its target weight, preserving a disciplined, risk-conscious approach that aligns with my objectives.</p>
+            </div>
+
+             <div class="mt-10 text-center">
+                <p class="text-lg text-blue-100">These are not just numbers. They are the result of a strategic approach you can replicate.</p>
+            </div>
+        </section>
+
+
+        <section id="keys-to-success" class="mb-16">
+            <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-10">Pillars of My Investment Strategy</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold mb-2 text-[#0062D5]">1. Diversification</h3>
+                    <p class="text-gray-600">I don't put all my eggs in one basket. I invest across various sectors, geographies, and asset classes to reduce risk and stabilize returns over time.</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold mb-2 text-[#0062D5]">2. Time Horizon</h3>
+                    <p class="text-gray-600">I think in terms of years, not days. This allows me to overcome short-term volatility and fully benefit from the power of compounding.</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold mb-2 text-[#0062D5]">3. Emotional Control</h3>
+                    <p class="text-gray-600">I follow a well-defined plan and avoid impulsive decisions based on fear or euphoria of the moment. Discipline is fundamental for long-term success.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                 <h3 class="text-2xl font-bold text-[#004AAD] text-center mb-6">How Diversification Works</h3>
+                 <div class="flex flex-col md:flex-row items-stretch justify-center gap-2">
+                     <div class="flow-item font-bold">Global Portfolio</div>
+                     <div class="flow-connector"></div>
+                     <div class="flow-item">US Stocks</div>
+                     <div class="flow-connector"></div>
+                     <div class="flow-item">European Stocks</div>
+                     <div class="flow-connector"></div>
+                     <div class="flow-item">Emerging Markets</div>
+                     <div class="flow-connector"></div>
+                      <div class="flow-item">Tech & Consumer Goods Sector</div>
+                 </div>
+                 <p class="text-sm text-center text-gray-500 mt-4">An example of how a portfolio is distributed to reduce dependence on a single market or sector.</p>
+            </div>
+
+            <div class="mt-12 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-[#004AAD] text-center mb-6">Compounding Interest and the Convenience of DCA</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="info-card border-l-4 border-l-[#0062D5] border-t-0">
+                        <h4 class="text-xl font-bold text-[#0062D5] mb-2">The "Miracle" of Compounding Interest</h4>
+                        <p class="text-gray-700">You earn interest not only on the initial capital, but also on previously accumulated interest. In the long term, this creates exponential wealth growth, transforming small investments into significant sums.</p>
+                    </div>
+                    <div class="info-card border-l-4 border-l-[#0062D5] border-t-0">
+                        <h4 class="text-xl font-bold text-[#0062D5] mb-2">Dollar Cost Averaging (DCA)</h4>
+                        <p class="text-gray-700">Investing a fixed amount regularly, regardless of market fluctuations, allows you to buy more shares when prices are low and less when they are high. This reduces risk and the need for "market timing", making investing more accessible and less stressful.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gemini-feature" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">✨ Investment Term Explainer ✨</h2>
+                <p class="text-center text-gray-600 mb-6 max-w-4xl mx-auto">Enter an investment term (e.g., 'diversification', 'liquidity', 'ETF') to get a concise explanation powered by AI.</p>
+                <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+                    <input type="text" id="termInput" placeholder="Enter an investment term..." class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0062D5] text-gray-800" />
+                    <button id="explainTermBtn" class="bg-[#0062D5] text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-[#004AAD] transition-colors duration-200">
+                        Explain Term
+                    </button>
+                </div>
+                <div id="loadingIndicator" class="hidden text-center mt-4 text-gray-500">
+                    Loading explanation...
+                </div>
+                <div id="explanationOutput" class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 min-h-[80px] flex items-center justify-center text-gray-700">
+                    Your explanation will appear here.
+                </div>
+            </div>
+        </section>
+
+        <section id="call-to-action" class="bg-[#0062D5] text-white text-center py-12 px-6 rounded-lg shadow-2xl">
+            <h2 class="text-4xl font-black mb-4">It's Time to Invest in Your Future</h2>
+            <p class="text-lg text-blue-100 max-w-2xl mx-auto mb-8">You've seen the logic, the strategy, and the results. If you believe in a data-driven, long-term growth investment approach, you're in the right place.</p>
+            <a href="https://etoro.tw/48JhngE" target="_blank" class="inline-block bg-white text-[#0062D5] font-bold py-4 px-8 rounded-lg text-xl shadow-lg hover:bg-gray-100 transition-transform transform hover:scale-105">
+                Copy My Portfolio on eToro
+            </a>
+            <p class="text-sm mt-4 text-blue-200">Disclaimer: Investing involves risks. Past performance is not an indication of future results.</p>
+        </section>
+
+    </div>
+
+    <script>
+        const brilliantBlues = ['#004AAD', '#0062D5', '#4194FF', '#82B8FF', '#C0D9FF'];
+
+        function processLabel(label, maxLength = 16) {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine.length > 0) {
+                lines.push(currentLine);
+            }
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+        
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#374151'
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#4B5563'
+                    },
+                    grid: {
+                        color: '#E5E7EB'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#4B5563'
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        };
+
+        const msciWorldData = {
+            labels: Array.from({ length: 11 }, (_, i) => processLabel(`Year ${2014 + i}`)),
+            datasets: [{
+                label: 'Hypothetical Growth of €10,000 (10.51% annual)',
+                data: Array.from({ length: 11 }, (_, i) => 10000 * Math.pow(1.1051, i)),
+                fill: true,
+                borderColor: brilliantBlues[1],
+                backgroundColor: 'rgba(0, 98, 213, 0.2)',
+                tension: 0.4
+            }]
+        };
+        new Chart(document.getElementById('msciWorldChart'), {
+            type: 'line',
+            data: msciWorldData,
+            options: defaultChartOptions
+        });
+
+        const assetComparisonData = {
+            labels: [processLabel('Stocks (Global)'), processLabel('Gold'), processLabel('Bonds (Global)'), processLabel('Real Estate (Italy)')],
+            datasets: [{
+                label: 'Historical Average Annual Return (%)',
+                data: [10.51, 6.13, 3.81, 1.5],
+                backgroundColor: [brilliantBlues[1], brilliantBlues[2], brilliantBlues[3], brilliantBlues[4]],
+                borderColor: brilliantBlues[0],
+                borderWidth: 1,
+            }]
+        };
+        new Chart(document.getElementById('assetComparisonChart'), {
+            type: 'bar',
+            data: assetComparisonData,
+            options: {
+                 ...defaultChartOptions,
+                 indexAxis: 'y',
+                 plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#4B5563'
+                        },
+                        grid: {
+                            color: '#E5E7EB'
+                        },
+                        max: 12
+                    },
+                    y: {
+                        ticks: {
+                            color: '#4B5563'
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                barPercentage: 0.9,
+                categoryPercentage: 0.8
+            }
+        });
+
+        const etoroData = {
+            labels: [processLabel('2024 (from November)'), processLabel('2025 (Year-to-Date)')],
+            datasets: [{
+                label: 'eToro Portfolio Performance (%)',
+                data: [8, 31],
+                backgroundColor: ['#4194FF', '#0062D5'],
+                borderColor: brilliantBlues[0],
+                borderWidth: 1,
+            }]
+        };
+        new Chart(document.getElementById('etoroPerformanceChart'), {
+            type: 'bar',
+            data: etoroData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                         ticks: {
+                            color: '#ffffff'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#ffffff',
+                            font: {
+                                weight: 'bold'
+                            }
+                        },
+                         grid: {
+                            display: false
+                        }
+                    }
+                },
+                barPercentage: 0.7,
+                categoryPercentage: 0.6
+            }
+        });
+
+        // Gemini API Integration for Term Explainer
+        document.addEventListener('DOMContentLoaded', () => {
+            const termInput = document.getElementById('termInput');
+            const explainTermBtn = document.getElementById('explainTermBtn');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const explanationOutput = document.getElementById('explanationOutput');
+
+            explainTermBtn.addEventListener('click', async () => {
+                const term = termInput.value.trim();
+                if (!term) {
+                    explanationOutput.innerHTML = '<p class="text-red-500">Please enter a term to explain.</p>';
+                    return;
+                }
+
+                explanationOutput.innerHTML = ''; // Clear previous output
+                loadingIndicator.classList.remove('hidden'); // Show loading indicator
+
+                try {
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: `Explain the investment term "${term}" concisely.` }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // This will be automatically provided by the Canvas environment
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        explanationOutput.innerHTML = `<p class="text-gray-700">${text}</p>`;
+                    } else {
+                        explanationOutput.innerHTML = '<p class="text-red-500">Could not get an explanation. Please try again.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error fetching explanation:', error);
+                    explanationOutput.innerHTML = '<p class="text-red-500">An error occurred while fetching the explanation. Please try again later.</p>';
+                } finally {
+                    loadingIndicator.classList.add('hidden'); // Hide loading indicator
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
