@@ -449,7 +449,7 @@
                     let chatHistory = [];
                     chatHistory.push({ role: "user", parts: [{ text: `Explain the investment term "${term}" concisely.` }] });
                     const payload = { contents: chatHistory };
-                    const apiKey = ""; // This will be automatically provided by the Canvas environment
+                    const apiKey = "AIzaSyDyQ6yWBU8VLpadtyxxLoMpFRtO-mopR_g"; // This will be automatically provided by the Canvas environment
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                     const response = await fetch(apiUrl, {
