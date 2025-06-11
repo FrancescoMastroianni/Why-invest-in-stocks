@@ -207,25 +207,6 @@
             </div>
         </section>
 
-        <section id="gemini-feature" class="mb-16">
-            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">✨ Investment Term Explainer ✨</h2>
-                <p class="text-center text-gray-600 mb-6 max-w-4xl mx-auto">Enter an investment term (e.g., 'diversification', 'liquidity', 'ETF') to get a concise explanation powered by AI.</p>
-                <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
-                    <input type="text" id="termInput" placeholder="Enter an investment term..." class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0062D5] text-gray-800" />
-                    <button id="explainTermBtn" class="bg-[#0062D5] text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-[#004AAD] transition-colors duration-200">
-                        Explain Term
-                    </button>
-                </div>
-                <div id="loadingIndicator" class="hidden text-center mt-4 text-gray-500">
-                    Loading explanation...
-                </div>
-                <div id="explanationOutput" class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 min-h-[80px] flex items-center justify-center text-gray-700">
-                    Your explanation will appear here.
-                </div>
-            </div>
-        </section>
-
         <section id="call-to-action" class="bg-[#0062D5] text-white text-center py-12 px-6 rounded-lg shadow-2xl">
             <h2 class="text-4xl font-black mb-4">It's Time to Invest in Your Future</h2>
             <p class="text-lg text-blue-100 max-w-2xl mx-auto mb-8">You've seen the logic, the strategy, and the results. If you believe in a data-driven, long-term growth investment approach, you're in the right place.</p>
@@ -427,55 +408,7 @@
                 categoryPercentage: 0.6
             }
         });
-
-        // Gemini API Integration for Term Explainer
-        document.addEventListener('DOMContentLoaded', () => {
-            const termInput = document.getElementById('termInput');
-            const explainTermBtn = document.getElementById('explainTermBtn');
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const explanationOutput = document.getElementById('explanationOutput');
-
-            explainTermBtn.addEventListener('click', async () => {
-                const term = termInput.value.trim();
-                if (!term) {
-                    explanationOutput.innerHTML = '<p class="text-red-500">Please enter a term to explain.</p>';
-                    return;
-                }
-
-                explanationOutput.innerHTML = ''; // Clear previous output
-                loadingIndicator.classList.remove('hidden'); // Show loading indicator
-
-                try {
-                    let chatHistory = [];
-                    chatHistory.push({ role: "user", parts: [{ text: `Explain the investment term "${term}" concisely.` }] });
-                    const payload = { contents: chatHistory };
-                    const apiKey = "AIzaSyDyQ6yWBU8VLpadtyxxLoMpFRtO-mopR_g"; // This will be automatically provided by the Canvas environment
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    const result = await response.json();
-
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        const text = result.candidates[0].content.parts[0].text;
-                        explanationOutput.innerHTML = `<p class="text-gray-700">${text}</p>`;
-                    } else {
-                        explanationOutput.innerHTML = '<p class="text-red-500">Could not get an explanation. Please try again.</p>';
-                    }
-                } catch (error) {
-                    console.error('Error fetching explanation:', error);
-                    explanationOutput.innerHTML = '<p class="text-red-500">An error occurred while fetching the explanation. Please try again later.</p>';
-                } finally {
-                    loadingIndicator.classList.add('hidden'); // Hide loading indicator
-                }
-            });
-        });
-
     </script>
 </body>
 </html>
+
